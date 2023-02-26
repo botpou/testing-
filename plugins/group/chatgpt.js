@@ -7,7 +7,7 @@ exports.run = {
       command
    }) => {
       try {
-         if (!text) throw `*enter a request or an order to use the chatgpt*\n\n*—◉ 𝙴xample*\n*◉ ${usedPrefix + command}series 2022  netflix*\n*◉ ${usedPrefix + command} write a js code*`
+         if (!text) throw `*enter a request or an order to use the chatgpt*\n\n*—◉ 𝙴xample*\n*◉ .ia series 2022  netflix*\n*◉ .ia write a js code*`
 try {
 client.reply(`*Fon ti tann me bro*`)
          let tiores = await fetch(`https://api.lolhuman.xyz/api/openai?apikey=${lolkeysapi}&text=${text}&user=user-unique-id`)
