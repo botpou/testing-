@@ -1,10 +1,17 @@
 import { Configuration, OpenAIApi } from "openai";
 import fetch from "node-fetch"
 import { generateWAMessageFromContent } from "@adiwajshing/baileys"
-
 import fs from 'fs'
-let handler = async (m, { conn, text }) => {
-if (!text) throw "Hay adakah yang bisa saya bantu??"
+
+exports.run = {
+   usage: ['ia', 'openai'],
+   async: async (m, {
+      client,
+      args,
+      isPrefix,
+      command
+   }) => {
+if (!text) return client.reply(m.chat, Func.texted('bold', `wait... bro.`), m)
 const configuration = new Configuration({
     apiKey: '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'
 });
@@ -18,9 +25,5 @@ const openai = new OpenAIApi(configuration);
             frequency_penalty: 0.5,
             presence_penalty: 0
         });
-m.reply(response.data.choices[0].text)
+client.reply(response.data.choices[0].text)'
     }
-handler.help = ['openai']
-handler.tags = ['fun']
- handler.command = /^(yus|ai|openai)$/i
-export default handler
